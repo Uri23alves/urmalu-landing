@@ -1,0 +1,1032 @@
+/* ==========================================================================
+   VARIABLES DE MARCA — valores leídos directo del archivo de Figma
+   ========================================================================== */
+:root {
+  --color-bg: #142840;
+  --color-bg-alt: #1e3a5c;
+  --color-accent: #d72828;
+  --color-white: #ffffff;
+  --color-text-secondary: #b4b2a9;
+  --color-border: #b4b2a9;
+
+  --font-heading: "Archivo", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
+  /* Escala tipográfica fluida — el máximo (desktop) es el tamaño real de Figma,
+     el mínimo es lo que necesita para no romperse en mobile */
+  --fs-hero:  clamp(2.75rem, 9vw, 10rem);    /* Figma: 160px */
+  --fs-h2:    clamp(2.5rem, 7vw, 8rem);      /* Figma: 128px (FAQ) */
+  --fs-h3:    clamp(2rem, 6vw, 6rem);        /* Figma: 96px (Como trabajamos) */
+  --fs-h4:    clamp(1.75rem, 4vw, 4.125rem); /* Figma: 66px (títulos de sección) */
+  --fs-h5:    clamp(1.4rem, 3vw, 2.25rem);   /* Figma: 36px (pasos, cards) */
+  --fs-h6:    clamp(1.1rem, 2vw, 1.5rem);    /* Figma: 24px (FAQ preguntas) */
+  --fs-body-lg: 1.125rem; /* 18px */
+  --fs-body-sm: 0.875rem; /* 14px */
+
+  --container-width: 1200px;
+  --transition: 250ms ease;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+html, body { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* para que el navbar sticky no tape el título al llegar */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+* { box-sizing: border-box; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  text-transform: none;
+}
+
+h2 { font-size: var(--fs-h3); }
+
+p {
+  margin: 0 0 16px;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-lg);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 72px 0; position: relative; }
+
+.section-intro { max-width: 480px; margin-bottom: 32px; }
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px 10px 32px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-body-lg);
+  border: 0;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary { background: var(--color-white); color: var(--color-bg); }
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-white);
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+}
+
+.navbar__cta { padding: 8px 8px 8px 24px; font-size: 0.95rem; }
+.navbar__cta .btn__icon { width: 36px; height: 36px; }
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar-hotzone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  z-index: 101; /* por encima del navbar, para poder detectar el hover incluso con el navbar escondido */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  transition: box-shadow var(--transition), transform 350ms ease;
+}
+
+.navbar.is-scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); }
+
+/* Se esconde deslizándose hacia arriba una vez que scrolleaste más allá del hero */
+.navbar.is-hidden { transform: translateY(-100%); }
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.navbar__logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__logo img { display: block; }
+
+.navbar__nav { display: none; gap: 40px; }
+.navbar__nav a {
+  font-size: var(--fs-body-lg);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 200ms ease, transform 120ms ease;
+}
+
+.navbar__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 250ms ease;
+}
+
+.navbar__nav a:hover::after { width: 100%; }
+.navbar__nav a:hover { color: var(--color-accent); }
+.navbar__nav a:active { transform: scale(0.94); }
+
+.navbar__nav.is-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  padding: 24px;
+  gap: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.navbar__cta { display: none; }
+
+.navbar__burger {
+  background: none;
+  border: 0;
+  width: 32px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar__burger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-white);
+}
+
+.navbar__burger span:nth-child(1) { top: 0; }
+.navbar__burger span:nth-child(2) { top: 11px; }
+.navbar__burger span:nth-child(3) { top: 22px; }
+
+/* ==========================================================================
+   HERO — replica literal del frame de Figma "Hero Section" (1428 x 858 px)
+   Cada posición de acá abajo es (px de Figma / dimensión del frame) convertida a %,
+   no un valor inventado. Así se escala igual en cualquier pantalla, arriba de 64em.
+   ========================================================================== */
+.hero {
+  padding-top: 128px; /* 48px original + ~80px del navbar, que ahora es fixed y no empuja el contenido */
+  padding-bottom: 48px;
+  overflow: hidden;
+}
+
+.hero__stage {
+  position: relative;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Mobile: layout simple apilado (Figma no tiene frame mobile propio) --- */
+.hero__title { text-transform: uppercase; letter-spacing: -0.01em; }
+.hero__title span { display: block; font-size: var(--fs-hero); transition: color 200ms ease; }
+.hero__title-accent { color: var(--color-accent); } /* estado inicial: "Creatividad" en rojo */
+
+/* Al entrar el cursor en el bloque del título, todas quedan blancas por defecto... */
+.hero__title:hover span { color: var(--color-white); }
+/* ...excepto la que está siendo hovereada puntualmente, que pasa a rojo */
+.hero__title span:hover { color: var(--color-accent); }
+.hero__subhead { max-width: 560px; font-size: var(--fs-body-lg); margin-top: 24px; }
+
+.hero__photo { display: none; }
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Desktop (>=64em): posiciones y rotaciones EXACTAS del archivo de Figma --- */
+@media only screen and (min-width: 64em) {
+  .hero__stage {
+    aspect-ratio: 1428 / 858;
+    padding: 0;
+    container-type: inline-size;
+  }
+
+  .hero__title { position: static; }
+
+  .hero__title span {
+    position: absolute;
+    font-size: clamp(3rem, 11.2cqw, 10rem);
+    white-space: nowrap;
+  }
+
+  /* Creatividad: left 0/1428=0%, top 66/858=7.7% (ancla vertical centrada, como en Figma) */
+  .hero__line--1 { left: 0%; top: 7.7%; transform: translateY(-50%) translate(calc(var(--px, 0) * 1px), calc(var(--py, 0) * 1px)); transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+  /* Digital: left 357/1428=25%, top 247/858=28.8% */
+  .hero__line--2 { left: 25%; top: 28.8%; transform: translateY(-50%) translate(calc(var(--px, 0) * 1.6px), calc(var(--py, 0) * 1.6px)); transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+  /* Agencia: left 286/1428=20%, top 428/858=49.9% */
+  .hero__line--3 { left: 20%; top: 49.9%; transform: translateY(-50%) translate(calc(var(--px, 0) * 2.2px), calc(var(--py, 0) * 2.2px)); transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+  .hero__subhead {
+    position: absolute;
+    left: 31.6%;   /* 451/1428 */
+    top: 67.4%;    /* 578.5/858 */
+    width: 43.6%;  /* 623/1428 */
+    max-width: none;
+    margin-top: 0;
+  }
+
+  .hero__photo {
+    display: block;
+    position: absolute;
+  }
+
+  /* Foto izquierda: left 0%, top 20.4% (175/858), w 26.9% (384/1428), h 59% (506/858), rotate -7.95deg */
+  .hero__photo--left {
+    left: 0%;
+    top: 20.4%;
+    width: 26.9%;
+    height: 59%;
+    transform: rotate(-7.95deg);
+  }
+
+  /* Foto derecha: left 70.4% (1006/1428), top 0%, w 25% (357/1428), h 57% (489/858), rotate 4.27deg */
+  .hero__photo--right {
+    left: 70.4%;
+    top: 0%;
+    width: 25%;
+    height: 57%;
+    transform: rotate(4.27deg);
+  }
+
+  .hero__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ==========================================================================
+   SERVICIOS
+   ========================================================================== */
+.services__grid {
+  display: grid;
+  gap: 48px;
+}
+
+.services__intro {
+  align-self: start; /* necesario para que el sticky tenga espacio dentro del grid donde moverse */
+}
+
+@media only screen and (min-width: 48em) {
+  .services__intro {
+    position: sticky;
+    top: 110px; /* deja lugar para que no quede pegado justo debajo del navbar */
+  }
+}
+
+.services__cards {
+  display: grid;
+  gap: 24px;
+}
+
+.service-card {
+  border: 1px solid var(--color-white);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.service-card__icon {
+  position: relative;
+  width: 100px;
+  height: 68px;
+  margin-bottom: 12px;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.circle--outline {
+  left: 0;
+  border: 2px solid var(--color-white);
+  background: transparent;
+}
+
+.circle--fill {
+  left: 32px;
+  background: var(--color-accent);
+}
+
+.service-card:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.service-card:hover h3 { color: var(--color-accent); }
+.service-card:hover p { color: var(--color-bg); }
+.service-card:hover .circle--outline { border-color: var(--color-bg); }
+.service-card:hover .circle--fill { background: var(--color-bg); }
+
+.service-card h3 { font-size: var(--fs-h5); margin-bottom: 12px; transition: color var(--transition); }
+.service-card p { margin-bottom: 0; font-size: var(--fs-body-lg); transition: color var(--transition); }
+
+/* ==========================================================================
+   LOGOS DE CLIENTES
+   ========================================================================== */
+.clients { background: var(--color-accent); padding: 32px 0; overflow: hidden; }
+
+.clients__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+  padding: 0 24px;
+  color: var(--color-white);
+}
+
+.clients__marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.clients__track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  animation: clients-marquee 22s linear infinite;
+}
+
+.clients__marquee:hover .clients__track { animation-play-state: paused; }
+
+@keyframes clients-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); } /* -25% porque ahora son 4 copias del set completo */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients__track { animation: none; flex-wrap: wrap; }
+}
+
+.client-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  border: 1.5px solid var(--color-white);
+  border-radius: 50px;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   PROCESO
+   ========================================================================== */
+.process__header { margin-bottom: 48px; position: relative; }
+
+.process__star {
+  width: 140px;
+  height: 140px;
+  top: -20px;
+  right: 5%;
+  display: none;
+}
+
+@media only screen and (min-width: 48em) {
+  .process__star { display: block; width: 220px; height: 220px; top: -60px; right: 8%; }
+}
+
+.process__list-wrap {
+  position: relative;
+  padding-left: 32px;
+}
+
+.process__progress {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--color-border);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+.process__progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: height 80ms linear;
+}
+
+.process__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.process__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.process__number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-border);
+  opacity: 0.4;
+  transition: color 400ms ease, opacity 400ms ease;
+  flex-shrink: 0;
+}
+
+.process__step.is-passed .process__number {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+.process__step-body h3 { font-size: var(--fs-h5); margin-bottom: 8px; }
+.process__step-body p { margin-bottom: 0; font-size: var(--fs-body-lg); }
+.process__connector { display: none; }
+
+@media only screen and (min-width: 48em) {
+  .process__list-wrap { padding-left: 48px; }
+  .process__list { gap: 56px; }
+
+  .process__step { align-items: center; gap: 32px; }
+
+  .process__number { font-size: 2.75rem; flex: 0 0 90px; }
+  .process__step-body { display: flex; align-items: center; gap: 16px; width: 100%; }
+  .process__step-body h3 { flex: 0 0 27.9%; margin-bottom: 0; } /* 398/1428 del frame Work Process */
+  .process__step-body p { flex: 0 1 38.2%; margin-bottom: 0; }  /* 546/1428 */
+
+  .process__connector {
+    display: block;
+    flex: 1 1 auto;
+    height: 2px;
+    min-width: 24px;
+    background: var(--color-border);
+    opacity: 0.35;
+    position: relative;
+    color: var(--color-border);
+    transition: background 400ms ease, opacity 400ms ease, color 400ms ease;
+  }
+
+  .process__connector::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .process__step.is-passed .process__connector {
+    background: var(--color-accent);
+    color: var(--color-accent);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process__progress-fill { transition: none; }
+}
+
+/* ==========================================================================
+   QUIÉNES SOMOS
+   ========================================================================== */
+.about { background: var(--color-bg-alt); }
+
+.about__grid { display: grid; gap: 48px; align-items: center; }
+
+.about__photos { position: relative; min-height: 420px; }
+
+@media only screen and (min-width: 48em) {
+  .about__photos { min-height: 540px; }
+}
+
+.about__photo-frame {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Foto de producción — es horizontal (4:3) en la realidad, ahora se fuerza esa proporción sin importar el padre */
+.about__photo-frame--1 {
+  left: 2%;
+  top: 4%;
+  width: 58%;
+  aspect-ratio: 4 / 3;
+  animation: float-1 5s ease-in-out infinite;
+}
+
+/* Foto del drone — es vertical (3:4) en la realidad */
+.about__photo-frame--2 {
+  left: 48%;
+  top: 42%;
+  width: 40%;
+  aspect-ratio: 3 / 4;
+  animation: float-2 6s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+/* La imagen es la que se arrastra — separada del frame para no pisar la animación de flote */
+.about__photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  cursor: grab;
+  touch-action: none; /* evita que el navegador scrollee la página mientras arrastrás la foto */
+  -webkit-user-drag: none; /* refuerzo del draggable="false" del HTML, por si algún navegador lo ignora */
+  user-select: none;
+  transform: translate(calc(var(--dx, 0) * 1px), calc(var(--dy, 0) * 1px));
+  transition: transform 550ms cubic-bezier(0.34, 1.56, 0.64, 1); /* efecto "elástico" al volver a su lugar */
+}
+
+.about__photo.is-dragging {
+  cursor: grabbing;
+  transition: none; /* mientras arrastrás, que siga al mouse sin demora */
+}
+
+.about__star {
+  width: 160px;
+  height: 160px;
+  left: 20%;
+  top: 62%;
+  z-index: 0;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50%      { transform: rotate(-8deg) translateY(-14px); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: rotate(10deg) translateY(0); }
+  50%      { transform: rotate(10deg) translateY(-10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__photo--1, .about__photo--2 { animation: none; }
+}
+
+.about h2 { font-size: var(--fs-h4); }
+
+.about__title {
+  display: inline-block;
+  padding: 2px 10px;
+  margin-left: -10px; /* compensa el padding para que no se desalinee del texto de abajo */
+  border-radius: 4px;
+  background: transparent;
+  transition: background 250ms ease;
+}
+
+.about__title.is-typing {
+  background: var(--color-accent);
+}
+
+.about__title.is-typing::after {
+  content: "|";
+  margin-left: 2px;
+  animation: about-cursor-blink 800ms step-end infinite;
+}
+
+@keyframes about-cursor-blink {
+  50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   NUESTRO TEAM
+   ========================================================================== */
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.team-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 3 / 4;
+}
+
+.team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 400ms ease;
+}
+
+.team-card:hover img { transform: scale(1.05); }
+
+.team-card__ribbon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-accent);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 300ms ease;
+}
+
+.team-card:hover .team-card__ribbon { transform: translateY(0); }
+
+.team-card__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-white);
+}
+
+.team-card__role {
+  font-size: var(--fs-body-sm);
+  color: var(--color-white);
+  opacity: 0.85;
+}
+
+@media only screen and (min-width: 48em) {
+  .team__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ==========================================================================
+   TESTIMONIOS
+   ========================================================================== */
+.testimonials { background: var(--color-accent); overflow: hidden; }
+
+.testimonials__inner {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+  min-height: 320px;
+}
+
+.testimonial-card { margin: 0; max-width: 560px; }
+
+.testimonial-card p {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h5);
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.testimonial-card cite {
+  font-style: normal;
+  font-size: var(--fs-h6);
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.testimonials__photo img {
+  border-radius: 16px;
+  max-width: 320px;
+  transform: rotate(6deg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 48em) {
+  /* Como en Figma: 631/1512 = 41.7% del ancho para la foto, del lado derecho */
+  .testimonials__inner { grid-template-columns: 1fr 41.7%; }
+}
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq h2 { font-size: var(--fs-h2); }
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  max-width: 61.6%; /* 932/1512 en Figma */
+}
+
+@media only screen and (max-width: 61.99em) {
+  .faq__list { max-width: 100%; } /* en pantallas más chicas no hay margen para angostar sin achicar demasiado */
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  padding: 24px 28px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-h6);
+  color: var(--color-white);
+  transition: background 300ms ease, color 300ms ease;
+}
+
+.faq-item__trigger:hover { background: var(--color-white); color: var(--color-accent); }
+.faq-item.is-open .faq-item__trigger { background: var(--color-accent); color: var(--color-white); }
+
+.faq-item__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* El + se arma con 2 líneas (una fija, una que gira 90° y desaparece al abrir → queda el "–") */
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transition: transform 350ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.faq-item__icon::before { width: 16px; height: 2px; transform: translate(-50%, -50%); }
+.faq-item__icon::after  { width: 2px; height: 16px; transform: translate(-50%, -50%); }
+
+.faq-item.is-open .faq-item__icon::after { transform: translate(-50%, -50%) rotate(90deg) scale(0); }
+.faq-item.is-open .faq-item__icon::before { transform: translate(-50%, -50%) rotate(180deg); }
+
+/* Truco moderno para animar un alto que depende del contenido: grid de 0fr a 1fr */
+.faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 400ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.faq-item.is-open .faq-item__panel { grid-template-rows: 1fr; }
+
+.faq-item__answer {
+  position: relative;
+  background: var(--color-accent);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-item__answer p {
+  color: var(--color-white);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  max-width: 85%;
+  padding: 0 28px 24px;
+  /* Pequeño desvanecido + deslizamiento hacia arriba cuando aparece */
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 350ms ease 80ms, transform 350ms ease 80ms;
+}
+
+.faq-item.is-open .faq-item__answer p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-item__star {
+  width: 70px;
+  height: 70px;
+  right: -10px;
+  bottom: -15px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-20deg);
+  transition: opacity 400ms ease 120ms, transform 400ms ease 120ms;
+}
+
+.faq-item.is-open .faq-item__star {
+  opacity: 0.9;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item__panel, .faq-item__answer p, .faq-item__star, .faq-item__icon::before, .faq-item__icon::after {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
+.contact__title { font-size: var(--fs-h4); }
+
+.contact-form {
+  max-width: 640px;
+  border: 1px solid var(--color-border);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.contact-form__row { display: grid; gap: 20px; }
+
+.contact-form label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  padding: 8px 0;
+  font-size: var(--fs-body-lg);
+}
+
+.contact-form ::placeholder { color: var(--color-text-secondary); }
+.contact-form .btn { align-self: flex-start; margin-top: 12px; }
+
+/* ==========================================================================
+   WHATSAPP FLOTANTE
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+}
+
+.whatsapp-float:hover { transform: scale(1.08); }
+
+.whatsapp-float__icon {
+  width: 28px;
+  height: 28px;
+  /* El ícono original es negro — este filtro lo fuerza a blanco puro, sin necesidad de otro archivo */
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer { background: var(--color-accent); padding: 32px 0; }
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer__copy { margin: 0; font-style: italic; color: var(--color-white); opacity: 0.85; }
+.footer__social a { display: inline-flex; }
+.footer__social-icon {
+  width: 24px;
+  height: 24px;
+  /* Mismo truco que WhatsApp: fuerza el ícono a blanco puro sin necesitar otro archivo */
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   ESTRELLA DECORATIVA — componente reutilizable (Proceso, Quiénes somos, FAQ)
+   ========================================================================== */
+.decor-star {
+  position: absolute;
+  clip-path: polygon(50.0% 0.0%, 55.2% 30.7%, 75.0% 6.7%, 64.1% 35.9%, 93.3% 25.0%, 69.3% 44.8%, 100.0% 50.0%, 69.3% 55.2%, 93.3% 75.0%, 64.1% 64.1%, 75.0% 93.3%, 55.2% 69.3%, 50.0% 100.0%, 44.8% 69.3%, 25.0% 93.3%, 35.9% 64.1%, 6.7% 75.0%, 30.7% 55.2%, 0.0% 50.0%, 30.7% 44.8%, 6.7% 25.0%, 35.9% 35.9%, 25.0% 6.7%, 44.8% 30.7%);
+  pointer-events: none;
+}
+
+/* Variante grande, tornasolada — para secciones con fondo oscuro */
+.decor-star--iridescent {
+  background: linear-gradient(120deg, #d72828, #ff7a59, #d72828, #8f1a1a, #ff5c8a, #d72828);
+  background-size: 300% 300%;
+  will-change: transform, filter;
+}
+
+/* Variante chica, blanca sólida — para acentos puntuales (FAQ) */
+.decor-star--white {
+  background: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor-star--iridescent { transform: none !important; filter: none !important; }
+}
+
+
+@media only screen and (min-width: 48em) {
+  .navbar__nav { display: flex; }
+  .navbar__cta { display: inline-flex; }
+  .navbar__burger { display: none; }
+
+  .services__grid { grid-template-columns: 1fr 1.3fr; }
+  .about__grid { grid-template-columns: 1fr 1fr; }
+  .contact-form__row { grid-template-columns: 1fr 1fr; }
+
+  .footer__inner { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+@media only screen and (min-width: 62em) {
+  .services__cards { grid-template-columns: 1fr; }
+}

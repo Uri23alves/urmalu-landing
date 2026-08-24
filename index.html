@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urmalú — Comunicación y producción digital</title>
+  <meta name="description" content="Marketing digital, producción audiovisual, diseño gráfico y desarrollo web. Pensamos en grande.">
+
+  <meta property="og:title" content="Urmalú — Comunicación y producción digital">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://urmaluagencia.com.ar">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#142840">
+
+  <!-- Fuentes reales del archivo de Figma: Archivo (títulos) + Poppins (texto/botones) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Título único y Metadescripción -->
+<title>Urmalú Marketing | Agencia de Marketing Digital y Diseño</title>
+<meta name="description" content="Agencia de marketing digital en Rosario. Estrategia, diseño de identidad y piezas gráficas que potencian tu marca. ¡Respondemos en menos de 24 horas!">
+
+<!-- Esquema Local (Local Business Schema para Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Urmalú Marketing",
+  "image": "img/logo-urmalu.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Concordia",
+    "addressRegion": "Entre Rios",
+    "addressCountry": "AR"
+  },
+  "priceRange": "$$",
+  "url": "https://tusitio.com"
+}
+</script>
+</head>
+
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <!-- Franja invisible: pasar el mouse por acá revela el navbar cuando está escondido -->
+  <div class="navbar-hotzone" id="navbar-hotzone" aria-hidden="true"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__logo">
+        <img src="img/logo-urmalu.png" alt="Urmalú Marketing" height="32">
+      </a>
+
+      <nav class="navbar__nav" id="navbar-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20Urmal%C3%BA%2C%20quiero%20consultar%20por%20un%20proyecto" target="_blank" rel="noopener" class="btn btn--primary navbar__cta">
+        ¡Hablemos! <span class="btn__icon" aria-hidden="true">↗</span>
+      </a>
+
+      <button class="navbar__burger" id="navbar-burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ INICIO / HERO ============ -->
+    <!-- Posiciones tomadas literal de Figma (frame Hero Section, 1428x858) y convertidas a % -->
+    <section class="hero" id="inicio">
+      <div class="hero__stage">
+        <div class="hero__photo hero__photo--left">
+          <img src="img/placeholder-hero-1.jpg" alt="">
+        </div>
+        <div class="hero__photo hero__photo--right">
+          <img src="img/placeholder-hero-2.jpeg" alt="">
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero__title-accent hero__line--1">Creatividad</span>
+          <span class="hero__line--2">Digital</span>
+          <span class="hero__line--3">Agencia</span>
+        </h1>
+        <p class="hero__subhead">
+          Convertimos ideas en comunicación efectiva. Marketing digital, producción audiovisual,
+          diseño gráfico y desarrollo web para marcas que quieren crecer.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="services" id="servicios">
+      <div class="container services__grid">
+        <div class="services__intro">
+          <h2>¿Qué hacemos?</h2>
+          <p class="section-intro">Comunicación, diseño y producción, todo en un mismo equipo. Así trabajamos con cada marca.</p>
+          <a href="#contacto" class="btn btn--primary">
+            Hablemos <span class="btn__icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="services__cards">
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <span class="circle circle--outline"></span>
+              <span class="circle circle--fill"></span>
+            </div>
+            <div class="service-card__body">
+              <h3>Marketing Digital</h3>
+              <p>Estrategia, contenido y gestión de redes de principio a fin. Copywriting, diseño y producción propia, sin templates.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <span class="circle circle--outline"></span>
+              <span class="circle circle--fill"></span>
+            </div>
+            <div class="service-card__body">
+              <h3>Productora Audiovisual</h3>
+              <p>Reels, cobertura de eventos y sesiones fotográficas con equipo profesional completo.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <span class="circle circle--outline"></span>
+              <span class="circle circle--fill"></span>
+            </div>
+            <div class="service-card__body">
+              <h3>Diseño Gráfico</h3>
+              <p>Branding completo o adaptable: logo, identidad, manual de marca y piezas digitales.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <span class="circle circle--outline"></span>
+              <span class="circle circle--fill"></span>
+            </div>
+            <div class="service-card__body">
+              <h3>Desarrollo Web</h3>
+              <p>UX/UI desde cero en Figma. Landing pages, sitios institucionales, Tiendanube y WordPress.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOGOS DE CLIENTES ============ -->
+    <section class="clients">
+      <div class="clients__inner">
+        <p class="clients__label">Marcas que ya confiaron en nosotros</p>
+        <div class="clients__marquee">
+          <div class="clients__track">
+            <!-- TODO: reemplazar por logos reales de clientes. Por ahora, placeholders ficticios -->
+            <!-- Se repite 4 veces (1 real + 3 aria-hidden) para que el loop no se corte en pantallas anchas -->
+            <span class="client-logo">MARCA UNO</span>
+            <span class="client-logo">MARCA DOS</span>
+            <span class="client-logo">MARCA TRES</span>
+            <span class="client-logo">MARCA CUATRO</span>
+            <span class="client-logo">MARCA CINCO</span>
+            <span class="client-logo" aria-hidden="true">MARCA UNO</span>
+            <span class="client-logo" aria-hidden="true">MARCA DOS</span>
+            <span class="client-logo" aria-hidden="true">MARCA TRES</span>
+            <span class="client-logo" aria-hidden="true">MARCA CUATRO</span>
+            <span class="client-logo" aria-hidden="true">MARCA CINCO</span>
+            <span class="client-logo" aria-hidden="true">MARCA UNO</span>
+            <span class="client-logo" aria-hidden="true">MARCA DOS</span>
+            <span class="client-logo" aria-hidden="true">MARCA TRES</span>
+            <span class="client-logo" aria-hidden="true">MARCA CUATRO</span>
+            <span class="client-logo" aria-hidden="true">MARCA CINCO</span>
+            <span class="client-logo" aria-hidden="true">MARCA UNO</span>
+            <span class="client-logo" aria-hidden="true">MARCA DOS</span>
+            <span class="client-logo" aria-hidden="true">MARCA TRES</span>
+            <span class="client-logo" aria-hidden="true">MARCA CUATRO</span>
+            <span class="client-logo" aria-hidden="true">MARCA CINCO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="process" id="proceso">
+      <div class="container">
+        <div class="process__header">
+          <h2>Como<br>trabajamos</h2>
+          <p class="section-intro">Un proceso simple, pensado para que sepas en qué etapa está tu proyecto en todo momento.</p>
+          <div class="decor-star decor-star--iridescent process__star" aria-hidden="true"></div>
+        </div>
+
+        <div class="process__list-wrap">
+          <div class="process__progress" aria-hidden="true">
+            <div class="process__progress-fill" id="process-progress-fill"></div>
+          </div>
+
+          <ol class="process__list">
+            <li class="process__step">
+              <span class="process__number">01</span>
+              <div class="process__step-body">
+                <h3>Diagnóstico</h3>
+                <span class="process__connector" aria-hidden="true"></span>
+                <p>Analizamos tu situación actual y agendamos una reunión para entender qué necesitás.</p>
+              </div>
+            </li>
+            <li class="process__step">
+              <span class="process__number">02</span>
+              <div class="process__step-body">
+                <h3>Propuesta</h3>
+                <span class="process__connector" aria-hidden="true"></span>
+                <p>Armamos una estrategia, un plan de acción y el presupuesto. Todo claro desde el inicio.</p>
+              </div>
+            </li>
+            <li class="process__step">
+              <span class="process__number">03</span>
+              <div class="process__step-body">
+                <h3>Producción</h3>
+                <span class="process__connector" aria-hidden="true"></span>
+                <p>Te mostramos un resultado elaborado. Según tu feedback, lo ajustamos o lo aprobamos.</p>
+              </div>
+            </li>
+            <li class="process__step">
+              <span class="process__number">04</span>
+              <div class="process__step-body">
+                <h3>Entrega</h3>
+                <span class="process__connector" aria-hidden="true"></span>
+                <p>Redes: de la idea a la publicación. Proyectos puntuales: todo listo para usar.</p>
+              </div>
+            </li>
+            <li class="process__step">
+              <span class="process__number">05</span>
+              <div class="process__step-body">
+                <h3>Seguimiento</h3>
+                <span class="process__connector" aria-hidden="true"></span>
+                <p>Medimos resultados y ajustamos si hace falta, o damos soporte si lo necesitás.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUIÉNES SOMOS ============ -->
+    <section class="about" id="quienes-somos">
+      <div class="container about__grid">
+        <div class="about__photos">
+          <div class="about__photo-frame about__photo-frame--1">
+            <img class="about__photo" src="img/about-1-produccion.jpg" alt="Equipo de Urmalú en una producción audiovisual" draggable="false">
+          </div>
+          <div class="about__photo-frame about__photo-frame--2">
+            <img class="about__photo" src="img/about-2-drone.jpg" alt="Equipo de Urmalú filmando con drone" draggable="false">
+          </div>
+          <div class="decor-star decor-star--iridescent about__star" aria-hidden="true"></div>
+        </div>
+        <div class="about__content">
+          <h2 class="about__title" id="about-title">¿Quiénes somos?</h2>
+          <p>
+            Nacimos en 2024 para resolver un problema simple: la falta de comunicación efectiva
+            en las marcas de la región. Hoy somos un equipo completo — estrategia, diseño,
+            producción audiovisual y desarrollo web — trabajando codo a codo con cada cliente.
+          </p>
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="btn btn--primary">
+            Ver en Instagram <span class="btn__icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NUESTRO TEAM ============ -->
+    <!-- TODO: solo Uriel tiene foto/nombre real por ahora. Ver instrucciones al final para completar el resto -->
+    <section class="team" id="team">
+      <div class="container">
+        <h2>Nuestro team</h2>
+
+        <div class="team__grid">
+          <div class="team-card">
+            <img src="img/team-1-uriel.jpg" alt="Uriel Alves Dos Santos">
+            <div class="team-card__ribbon">
+              <span class="team-card__name">Uriel Alves Dos Santos</span>
+              <span class="team-card__role">Diseñador Gráfico</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <!-- TODO: falta foto + nombre + cargo real -->
+            <img src="img/team-2.jpg" alt="Integrante del equipo Urmalú">
+            <div class="team-card__ribbon">
+              <span class="team-card__name">[Nombre]</span>
+              <span class="team-card__role">[Cargo]</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <!-- TODO: falta foto + nombre + cargo real -->
+            <img src="img/team-3.jpg" alt="Integrante del equipo Urmalú">
+            <div class="team-card__ribbon">
+              <span class="team-card__name">[Nombre]</span>
+              <span class="team-card__role">[Cargo]</span>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <!-- TODO: falta foto + nombre + cargo real -->
+            <img src="img/team-4.jpg" alt="Integrante del equipo Urmalú">
+            <div class="team-card__ribbon">
+              <span class="team-card__name">[Nombre]</span>
+              <span class="team-card__role">[Cargo]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="testimonials" id="testimonios">
+      <div class="container testimonials__inner">
+        <div class="testimonials__content">
+          <h2>No lo decimos nosotros</h2>
+          <!-- TODO: reemplazar por testimonios reales a medida que se recolecten -->
+          <blockquote class="testimonial-card">
+            <p>"[Cita textual del cliente, 2-3 oraciones sobre el valor que le aportó Urmalú]"</p>
+            <cite>— [Nombre], [Cargo/Rubro], [Empresa]</cite>
+          </blockquote>
+        </div>
+        <!-- TODO: foto de stock temporal, reemplazar por foto real del cliente cuando esté -->
+        <div class="testimonials__photo">
+          <img src="img/placeholder-testimonial.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>¿Tenés dudas?</h2>
+
+        <div class="faq__list">
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Cuánto cuesta trabajar con Urmalú?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>Nos adaptamos a distintos presupuestos según el proyecto. Consultanos por WhatsApp y armamos un presupuesto a medida.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Con qué tipo de marcas trabajan?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>Con todo tipo: emprendimientos, empresas consolidadas, clubes y organizaciones sociales.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Cuánto tarda un proyecto?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>Depende de la complejidad. Un branding lleva 2-3 semanas, un sitio web 4-6 semanas. Consultanos por tu caso.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Qué incluye la gestión de redes?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>Estrategia, diseño, producción de reels propios, copywriting, community management completo.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Cómo está compuesto el equipo?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>Cuatro personas: diseñador gráfico, productor audiovisual, community manager y administrador.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>¿Trabajan solo en Concordia?</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>No. Trabajamos en toda la región de Entre Ríos y estamos expandiéndonos a otras provincias de Argentina.</p>
+                <div class="decor-star decor-star--white faq-item__star" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <!-- NOTA: en el Figma esta sección todavía es el CTA simple "HAVE ANY PROJECT IDEA?" en inglés.
+         Acá va el formulario completo de 5 campos que ya habíamos cerrado. Replicar en Figma cuando puedas. -->
+    <section class="contact" id="contacto">
+      <div class="container">
+        <h2 class="contact__title">Crecé junto a nosotros.</h2>
+        <p class="section-intro">Hablamos directo, sin vueltas. Contactanos por WhatsApp y arrancamos.</p>
+
+        <form class="contact-form" id="contact-form">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre y apellido" required>
+
+          <div class="contact-form__row">
+            <div>
+              <label for="company">Nombre de compañía</label>
+              <input type="text" id="company" name="company" placeholder="Nombre de tu empresa o marca">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tunombre@empresa.com" required>
+            </div>
+          </div>
+
+          <label for="service">Nombre del servicio</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>¿Qué servicio te interesa?</option>
+            <option value="Marketing Digital">Marketing Digital</option>
+            <option value="Productora Audiovisual">Productora Audiovisual</option>
+            <option value="Diseño Gráfico">Diseño Gráfico</option>
+            <option value="Desarrollo Web">Desarrollo Web</option>
+          </select>
+
+          <label for="details">Detalle del proyecto</label>
+          <textarea id="details" name="details" placeholder="Contanos brevemente tu proyecto o idea" rows="4"></textarea>
+
+          <button type="submit" class="btn btn--primary">¡Hablemos! <span class="btn__icon" aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ BOTÓN WHATSAPP FLOTANTE ============ -->
+  <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20Urmal%C3%BA%2C%20quiero%20consultar%20por%20un%20proyecto"
+     class="whatsapp-float" id="whatsapp-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <img src="img/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-float__icon">
+  </a>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="navbar__logo"><img src="img/logo-urmalu.png" alt="Urmalú Marketing" height="28"></span>
+      <p class="footer__copy">© 2026 Urmalú. Todos los derechos reservados.</p>
+      <div class="footer__social">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="img/instagram-icon.png" alt="" class="footer__social-icon">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
