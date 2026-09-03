@@ -468,15 +468,35 @@ section { padding: 72px 0; position: relative; }
 }
 
 .client-logo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  padding: 8px 16px;
-  border: 1.5px solid var(--color-white);
-  border-radius: 50px;
-  white-space: nowrap;
-  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 64px;
+  padding: 12px 20px;
+}
+
+.client-logo img {
+  max-height: 34px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
+  /* En reposo: grises y algo apagados (a los blancos los "apaga" la opacidad, no el filtro,
+     porque el gris no tiene efecto visible sobre un blanco puro) */
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter 350ms ease, opacity 350ms ease, transform 350ms ease;
+}
+
+.client-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-logo img { transition: none; }
 }
 
 /* ==========================================================================
