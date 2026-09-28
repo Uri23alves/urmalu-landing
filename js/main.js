@@ -63,6 +63,27 @@ if (burger && nav) {
 // ==========================================================================
 // FORMULARIO DE CONTACTO (placeholder — se conecta a Formspree/Netlify en Fase 5)
 // ==========================================================================
+// ==========================================================================
+// TESTIMONIOS: las flechas cambian la cita y el logo del cliente juntos
+// ==========================================================================
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+const testimonialLogos = document.querySelectorAll('.testimonials__logo-frame img');
+const prevBtn = document.getElementById('testimonials-prev');
+const nextBtn = document.getElementById('testimonials-next');
+
+if (testimonialCards.length && prevBtn && nextBtn) {
+  let current = 0;
+
+  const goTo = (index) => {
+    current = (index + testimonialCards.length) % testimonialCards.length;
+    testimonialCards.forEach((card, i) => card.classList.toggle('is-active', i === current));
+    testimonialLogos.forEach((logo, i) => logo.classList.toggle('is-active', i === current));
+  };
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+}
+
 const form = document.getElementById('contact-form');
 
 if (form) {

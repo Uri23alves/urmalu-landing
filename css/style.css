@@ -1,4 +1,4 @@
-/* ==========================================================================
+   /* ==========================================================================
    VARIABLES DE MARCA — valores leídos directo del archivo de Figma
    ========================================================================== */
 :root {
@@ -799,34 +799,99 @@ section { padding: 72px 0; position: relative; }
   gap: 32px;
   align-items: center;
   position: relative;
-  min-height: 320px;
 }
 
-.testimonial-card { margin: 0; max-width: 560px; }
+/* --- Carrusel de citas: se apilan superpuestas, solo la .is-active se ve --- */
+.testimonials__track {
+  position: relative;
+  min-height: 180px;
+}
+
+.testimonial-card {
+  margin: 0;
+  max-width: 560px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 350ms ease, transform 350ms ease, visibility 0s 350ms;
+}
+
+.testimonial-card.is-active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 350ms ease, transform 350ms ease;
+}
 
 .testimonial-card p {
   font-family: var(--font-heading);
-  font-size: var(--fs-h5);
+  font-size: var(--fs-h6);
   font-weight: 700;
   color: var(--color-white);
+  line-height: 1.4;
 }
 
 .testimonial-card cite {
   font-style: normal;
-  font-size: var(--fs-h6);
+  font-size: var(--fs-body-sm);
   font-weight: 600;
   color: var(--color-white);
+  opacity: 0.85;
 }
 
-.testimonials__photo img {
+/* --- Flechas --- */
+.testimonials__nav { display: flex; gap: 12px; margin-top: 24px; }
+
+.testimonials__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-white);
+  background: transparent;
+  color: var(--color-white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+.testimonials__arrow:hover { background: var(--color-white); color: var(--color-accent); }
+.testimonials__arrow:active { transform: scale(0.92); }
+
+/* --- Marco del logo del cliente: mismo tratamiento navy que la franja de marcas,
+   así funciona parejo sea cual sea el color de fondo original del logo --- */
+.testimonials__logo-frame {
+  position: relative;
   border-radius: 16px;
-  max-width: 320px;
-  transform: rotate(6deg);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.testimonials__logo-frame img {
+  max-width: 300px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+.testimonials__logo-frame img.is-active { opacity: 1; position: relative; }
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-card, .testimonials__logo-frame img { transition: none; }
 }
 
 @media only screen and (min-width: 48em) {
-  /* Como en Figma: 631/1512 = 41.7% del ancho para la foto, del lado derecho */
+  /* Como en Figma: 631/1512 = 41.7% del ancho para el logo, del lado derecho */
   .testimonials__inner { grid-template-columns: 1fr 41.7%; }
 }
 

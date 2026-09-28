@@ -155,8 +155,6 @@
             <span class="client-logo"><img src="img/clients/client-yaguarete.png" alt="Yaguareté" loading="lazy"></span>
             <span class="client-logo"><img src="img/clients/client-guerrero.png" alt="Guerrero Electricidad" loading="lazy"></span>
             <span class="client-logo"><img src="img/clients/client-mesopotamicos.png" alt="Materiales Mesopotámicos" loading="lazy"></span>
-            <span class="client-logo"><img src="img/clients/client-diarioriouruguay.png" alt="Diario Río Uruguay" loading="lazy"></span>
-            <span class="client-logo"><img src="img/clients/client-andreschabrillon.png" alt="Inmobiliaria Andrés Chabrillon" loading="lazy"></span>
 
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-alebucci.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-lamaga.png" alt="" loading="lazy"></span>
@@ -165,8 +163,6 @@
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-yaguarete.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-guerrero.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-mesopotamicos.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-diarioriouruguay.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-andreschabrillon.png" alt="" loading="lazy"></span>
 
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-alebucci.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-lamaga.png" alt="" loading="lazy"></span>
@@ -175,8 +171,6 @@
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-yaguarete.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-guerrero.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-mesopotamicos.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-diarioriouruguay.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-andreschabrillon.png" alt="" loading="lazy"></span>
 
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-alebucci.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-lamaga.png" alt="" loading="lazy"></span>
@@ -185,8 +179,6 @@
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-yaguarete.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-guerrero.png" alt="" loading="lazy"></span>
             <span class="client-logo" aria-hidden="true"><img src="img/clients/client-mesopotamicos.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-diarioriouruguay.png" alt="" loading="lazy"></span>
-            <span class="client-logo" aria-hidden="true"><img src="img/clients/client-andreschabrillon.png" alt="" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -295,7 +287,7 @@
 
           <div class="team-card">
             <!-- TODO: falta foto + nombre + cargo real -->
-            <img src="img/team-2.jpg" alt="Integrante del equipo Urmalú">
+            <img src="img/team-2-luca.jpg" alt="Integrante del equipo Urmalú">
             <div class="team-card__ribbon">
               <span class="team-card__name">Luca Passarella</span>
               <span class="team-card__role">Administrador</span>
@@ -319,15 +311,27 @@
       <div class="container testimonials__inner">
         <div class="testimonials__content">
           <h2>No lo decimos nosotros</h2>
-          <!-- TODO: reemplazar por testimonios reales a medida que se recolecten -->
-          <blockquote class="testimonial-card">
-            <p>"[Cita textual del cliente, 2-3 oraciones sobre el valor que le aportó Urmalú]"</p>
-            <cite>— [Nombre], [Cargo/Rubro], [Empresa]</cite>
-          </blockquote>
+
+          <div class="testimonials__track" id="testimonials-track">
+            <blockquote class="testimonial-card is-active" data-slide="0">
+              <p>"La experiencia con Urmalú es excelente. Siempre están atentos y predispuestos a las necesidades del negocio o emprendimiento. Te acercan muchas ideas o te ayudan a potenciar las que uno tiene. Desde ya, los recomiendo."</p>
+              <cite>— Felipe Roman, Dueño de Heladería Italia</cite>
+            </blockquote>
+            <blockquote class="testimonial-card" data-slide="1">
+              <p>"El trabajo en asociación con Urmalú fue determinante para que Diario Río Uruguay saliera de un estancamiento que estábamos transitando en materia de impacto y réplica en redes sociales. El cambio de estética y los consejos en materia de qué y cómo publicar fue lo que marcó la diferencia desde allí en más."</p>
+              <cite>— Horacio Osorio, Dueño de Diario Río Uruguay</cite>
+            </blockquote>
+          </div>
+
+          <div class="testimonials__nav">
+            <button type="button" class="testimonials__arrow" id="testimonials-prev" aria-label="Testimonio anterior">←</button>
+            <button type="button" class="testimonials__arrow" id="testimonials-next" aria-label="Testimonio siguiente">→</button>
+          </div>
         </div>
-        <!-- TODO: foto de stock temporal, reemplazar por foto real del cliente cuando esté -->
-        <div class="testimonials__photo">
-          <img src="img/placeholder-testimonial.jpg" alt="">
+
+        <div class="testimonials__logo-frame">
+          <img src="img/clients/client-italia.png" alt="Heladería Italia" id="testimonials-logo" class="is-active">
+          <img src="img/clients/client-diariorio.png" alt="Diario Río Uruguay" id="testimonials-logo-2">
         </div>
       </div>
     </section>
