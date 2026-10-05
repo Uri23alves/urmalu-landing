@@ -271,33 +271,30 @@
     </section>
 
     <!-- ============ NUESTRO TEAM ============ -->
-    <!-- TODO: solo Uriel tiene foto/nombre real por ahora. Ver instrucciones al final para completar el resto -->
-    <section class="team" id="team">
+    <section class="team" id="team" style="text-align: left;">
       <div class="container">
-        <h2>Nuestro team</h2>
+        <h2 style="text-align: left;">Nuestro team</h2>
 
-        <div class="team__grid">
-          <div class="team-card">
-            <img src="img/team-1-uriel.jpg" alt="Uriel Alves Dos Santos">
-            <div class="team-card__ribbon">
+        <div class="team__grid" style="justify-content: center; align-items: center;">
+          <div class="team-card" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <img src="img/team-1-uriel.jpeg" alt="Uriel Alves Dos Santos" style="display: block; margin: 0 auto;">
+            <div class="team-card__ribbon" style="text-align: center;">
               <span class="team-card__name">Uriel Alves Dos Santos</span>
               <span class="team-card__role">Diseñador Gráfico</span>
             </div>
           </div>
 
-          <div class="team-card">
-            <!-- TODO: falta foto + nombre + cargo real -->
-            <img src="img/team-2-luca.jpg" alt="Integrante del equipo Urmalú">
-            <div class="team-card__ribbon">
+          <div class="team-card" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <img src="img/team-2-luca.jpg" alt="Integrante del equipo Urmalú" style="display: block; margin: 0 auto;">
+            <div class="team-card__ribbon" style="text-align: center;">
               <span class="team-card__name">Luca Passarella</span>
               <span class="team-card__role">Administrador</span>
             </div>
           </div>
 
-          <div class="team-card">
-            <!-- TODO: falta foto + nombre + cargo real -->
-            <img src="img/team-3-mateo.jpg" alt="Integrante del equipo Urmalú">
-            <div class="team-card__ribbon">
+          <div class="team-card" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <img src="img/team-3-mateo.jpg" alt="Integrante del equipo Urmalú" style="display: block; margin: 0 auto;">
+            <div class="team-card__ribbon" style="text-align: center;">
               <span class="team-card__name">Mateo Osorio</span>
               <span class="team-card__role">Productor Audiovisual</span>
             </div>
@@ -315,23 +312,33 @@
           <div class="testimonials__track" id="testimonials-track">
             <blockquote class="testimonial-card is-active" data-slide="0">
               <p>"La experiencia con Urmalú es excelente. Siempre están atentos y predispuestos a las necesidades del negocio o emprendimiento. Te acercan muchas ideas o te ayudan a potenciar las que uno tiene. Desde ya, los recomiendo."</p>
-              <cite>— Felipe Roman, Dueño de Heladería Italia</cite>
+              <cite>— Felipe Román, Dueño de Heladería Italia</cite>
             </blockquote>
             <blockquote class="testimonial-card" data-slide="1">
               <p>"El trabajo en asociación con Urmalú fue determinante para que Diario Río Uruguay saliera de un estancamiento que estábamos transitando en materia de impacto y réplica en redes sociales. El cambio de estética y los consejos en materia de qué y cómo publicar fue lo que marcó la diferencia desde allí en más."</p>
               <cite>— Horacio Osorio, Dueño de Diario Río Uruguay</cite>
             </blockquote>
+            <blockquote class="testimonial-card" data-slide="2">
+              <p>"¡Buenas! Mi experiencia con la Agencia Urmalú es muy buena. ¡Muy contentos de poder contar con ellos en nuestro manejo de redes! ¡Los recomiendo siempre!"</p>
+              <cite>— Daniel Pérez, Socio Gerente de Guerrero Electricidad S.R.L.</cite>
+            </blockquote>
+            <blockquote class="testimonial-card" data-slide="3">
+              <p>"Nuestra experiencia con la Agencia Urmalú es excelente, ya que siempre mantienen un trato profesional resolviendo cada uno de nuestros pedidos con rapidez y compromiso. ¡Más que recomendable!"</p>
+              <cite>— Oscar Giménez, Gerente de Guerrero Electricidad S.R.L.</cite>
+            </blockquote>
           </div>
 
           <div class="testimonials__nav">
-            <button type="button" class="testimonials__arrow" id="testimonials-prev" aria-label="Testimonio anterior">←</button>
-            <button type="button" class="testimonials__arrow" id="testimonials-next" aria-label="Testimonio siguiente">→</button>
+            <button type="button" class="testimonials__arrow" id="testimonials-prev" aria-label="Testimonio anterior">&larr;</button>
+            <button type="button" class="testimonials__arrow" id="testimonials-next" aria-label="Testimonio siguiente">&rarr;</button>
           </div>
         </div>
 
         <div class="testimonials__logo-frame">
           <img src="img/clients/client-italia.png" alt="Heladería Italia" id="testimonials-logo" class="is-active">
           <img src="img/clients/client-diariorio.png" alt="Diario Río Uruguay" id="testimonials-logo-2">
+          <img src="img/clients/client-guerrero.png" alt="Guerrero Electricidad" id="testimonials-logo-3">
+          <img src="img/clients/client-guerrero.png" alt="Guerrero Electricidad" id="testimonials-logo-4">
         </div>
       </div>
     </section>
@@ -419,8 +426,6 @@
     </section>
 
     <!-- ============ CONTACTO ============ -->
-    <!-- NOTA: en el Figma esta sección todavía es el CTA simple "HAVE ANY PROJECT IDEA?" en inglés.
-         Acá va el formulario completo de 5 campos que ya habíamos cerrado. Replicar en Figma cuando puedas. -->
     <section class="contact" id="contacto">
       <div class="container">
         <h2 class="contact__title">Crecé junto a nosotros.</h2>
@@ -464,7 +469,7 @@
   <!-- ============ BOTÓN WHATSAPP FLOTANTE ============ -->
   <a href="https://wa.me/543454010608?text=Hola%20Urmal%C3%BA%2C%20quiero%20consultar%20por%20un%20proyecto"
      class="whatsapp-float" id="whatsapp-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
-  <img src="img/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-float__icon">
+    <img src="img/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-float__icon">
   </a>
 
   <!-- ============ FOOTER ============ -->

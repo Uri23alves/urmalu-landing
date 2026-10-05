@@ -1,4 +1,4 @@
-   /* ==========================================================================
+/* ==========================================================================
    VARIABLES DE MARCA — valores leídos directo del archivo de Figma
    ========================================================================== */
 :root {
@@ -40,6 +40,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
 * { box-sizing: border-box; }
 
 body {
@@ -512,10 +513,6 @@ section { padding: 72px 0; position: relative; }
   display: none;
 }
 
-@media only screen and (min-width: 48em) {
-  .process__star { display: block; width: 220px; height: 220px; top: -60px; right: 8%; }
-}
-
 .process__list-wrap {
   position: relative;
   padding-left: 32px;
@@ -732,11 +729,19 @@ section { padding: 72px 0; position: relative; }
 /* ==========================================================================
    NUESTRO TEAM
    ========================================================================== */
+.team h2 {
+  text-align: left;
+}
+
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  /* Crea columnas flexibles entre 240px y 300px según el espacio */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+  /* Centra el bloque de tarjetas en la pantalla sin importar si son 1, 2 o 3 */
+  justify-content: center;
+  gap: 24px;
   margin-top: 40px;
+  width: 100%;
 }
 
 .team-card {
@@ -1132,7 +1137,6 @@ section { padding: 72px 0; position: relative; }
 @media (prefers-reduced-motion: reduce) {
   .decor-star--iridescent { transform: none !important; filter: none !important; }
 }
-
 
 @media only screen and (min-width: 48em) {
   .navbar__nav {
